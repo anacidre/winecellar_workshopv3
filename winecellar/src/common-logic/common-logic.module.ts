@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './components/main/main.component';
 import { DefaultPageComponent } from './components/default-page/default-page.component';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { RouterModule } from '@angular/router';
     SpinnerComponent
   ],
   imports: [
-    RouterModule
+    RouterModule,
+    CommonModule
   ]
 })
 export class CommonLogicModule {
