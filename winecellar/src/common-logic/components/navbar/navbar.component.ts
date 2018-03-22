@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+import { Account } from '../../../app/account';
 
 @Component({
   selector: 'app-navbar',
@@ -26,10 +28,10 @@ import { Component } from '@angular/core';
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="navbar-text hidden-sm hidden-xs hidden-md">
-              Welcome Brecht Billiet
+              Welcome {{account?.firstName}} {{ account?.lastName}}
             </li>
             <li>
-              <a href="javascript: void(0)">
+              <a href="javascript: void(0)" (click)="logoutClicked()">
                 <i class="fa fa-sign-out"></i>&nbsp;Logout
               </a>
             </li>
@@ -39,4 +41,10 @@ import { Component } from '@angular/core';
     </nav>`
 })
 export class NavbarComponent {
+  @Input() account: Account;
+  @Output() logout = new EventEmitter();
+
+  logoutClicked(): void {
+    this.logout.emit(null);
+  }
 }
